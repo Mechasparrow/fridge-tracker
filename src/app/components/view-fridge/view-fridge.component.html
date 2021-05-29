@@ -1,2 +1,4 @@
 <br>
-<h1>Viewing Fridge</h1>
+<h1 class = "view-title">Viewing Fridge</h1>
+
+<FridgeViewCard *ngFor = "let item of items" [itemToView]="item"></FridgeViewCard>
