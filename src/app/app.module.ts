@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NavHeaderComponent } from './share/nav-header/nav-header.component';
+import { ViewFridgeComponent } from './components/view-fridge/view-fridge.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavHeaderComponent
+    NavHeaderComponent,
+    ViewFridgeComponent
   ],
   imports: [
     BrowserModule,
