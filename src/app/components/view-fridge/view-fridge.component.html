@@ -1,4 +1,8 @@
 <br>
 <h1 class = "view-title">Viewing Fridge</h1>
 
+<div class = "button-wrapper">
+    <button mat-flat-button color = "primary">Add new item</button>
+</div>
+
 <FridgeViewCard *ngFor = "let item of items" [itemToView]="item"></FridgeViewCard>

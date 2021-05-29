@@ -10,6 +10,7 @@ import { NavHeaderComponent } from './share/nav-header/nav-header.component';
 import { ViewFridgeComponent } from './components/view-fridge/view-fridge.component';
 import { FridgeViewCardComponent } from './share/fridge-view-card/fridge-view-card.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
