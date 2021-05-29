@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NavHeaderComponent } from './share/nav-header/nav-header.component';
 import { ViewFridgeComponent } from './components/view-fridge/view-fridge.component';
+import { FridgeViewCardComponent } from './share/fridge-view-card/fridge-view-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavHeaderComponent,
-    ViewFridgeComponent
+    ViewFridgeComponent,
+    FridgeViewCardComponent
   ],
   imports: [
     BrowserModule,
