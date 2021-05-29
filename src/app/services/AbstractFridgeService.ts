@@ -8,10 +8,10 @@ export abstract class AbstractFridgeService {
    * Returns a list of all of the current user's todos.
    */
 
-  abstract getFridgeItems(): FridgeItem[];
+  abstract  getFridgeItems(): Promise<FridgeItem[]>;
   
-  abstract addFridgeItem(): FridgeItem;
+  abstract addFridgeItem(): Promise<FridgeItem>;
 
-  abstract checkFridgeItemExpired(item: FridgeItem): boolean;
+  abstract checkFridgeItemExpired(item: FridgeItem): Promise<boolean>;
 
 }
