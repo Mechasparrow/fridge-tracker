@@ -2,4 +2,11 @@
     <span>Item: {{itemToView.name}}</span><br>
     <span>Amount: {{itemToView.quantity}} {{itemToView.units}}</span><br>
     <span>Expiration Date: {{this.prettyDate()}}</span>
+
+    <mat-card-footer>
+        <button (click) ="remove()" mat-icon-button color="primary" aria-label="delete button">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-footer>
+    
 </mat-card>

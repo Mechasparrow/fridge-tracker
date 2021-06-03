@@ -27,8 +27,9 @@ export class TestingFridgeService implements AbstractFridgeService {
         },
     ]
 
-    removeFridgeItem(item: FridgeItem): Promise<FridgeItem> {
-        throw new Error('Method not implemented.');
+    removeFridgeItem(itemToRemove: FridgeItem): Promise<FridgeItem> {
+        TestingFridgeService.items = TestingFridgeService.items.filter(item => item != itemToRemove);
+        return Promise.resolve(itemToRemove);
     }
 
     getFridgeItems(): Promise<FridgeItem[]> {

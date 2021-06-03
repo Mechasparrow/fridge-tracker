@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FridgeItem } from 'src/app/models/FridgeItem';
 
 @Component({
@@ -15,6 +16,8 @@ export class FridgeViewCardComponent implements OnInit {
     expirationDate: new Date(Date.UTC(2000,12,12))
   };
 
+  @Output() deleteItem: EventEmitter<FridgeItem> = new EventEmitter<FridgeItem>();
+
   constructor() { 
 
   }
@@ -29,6 +32,10 @@ export class FridgeViewCardComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  remove(): void {
+    this.deleteItem.emit(this.itemToView);
   }
 
 }

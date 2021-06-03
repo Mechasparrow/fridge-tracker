@@ -32,5 +32,10 @@ export class ViewFridgeComponent implements OnInit {
     console.log(this.items);
   }
 
+  public async removeFridgeItem(item:FridgeItem){
+    let removedItem = await this.fridgeService.removeFridgeItem(item);
+    this.updateFridgeItems();
+  }
+
 
 }

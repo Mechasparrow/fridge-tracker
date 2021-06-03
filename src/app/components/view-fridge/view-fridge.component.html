@@ -8,4 +8,4 @@
     </button>
 </div>
 
-<FridgeViewCard *ngFor = "let item of items" [itemToView]="item"></FridgeViewCard>
+<FridgeViewCard (deleteItem)="removeFridgeItem($event)" *ngFor = "let item of items" [itemToView]="item"></FridgeViewCard>
