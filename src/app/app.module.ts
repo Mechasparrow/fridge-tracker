@@ -11,16 +11,22 @@ import { ViewFridgeComponent } from './components/view-fridge/view-fridge.compon
 import { FridgeViewCardComponent } from './share/fridge-view-card/fridge-view-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { NewItemComponent } from './components/new-item/new-item.component';
+import { MatIconModule} from '@angular/material/icon';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavHeaderComponent,
     ViewFridgeComponent,
-    FridgeViewCardComponent
+    FridgeViewCardComponent,
+    NewItemComponent
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
