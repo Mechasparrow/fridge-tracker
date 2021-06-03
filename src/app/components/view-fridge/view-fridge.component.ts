@@ -13,7 +13,6 @@ import {FridgeItem} from 'src/app/models/FridgeItem';
 })
 export class ViewFridgeComponent implements OnInit {
 
-  private _fridgeService: AbstractFridgeService;
   public items: FridgeItem[] = [];
 
   ngOnInit(): void {
@@ -21,13 +20,12 @@ export class ViewFridgeComponent implements OnInit {
   }
 
   constructor(private fridgeService: AbstractFridgeService) {
-    this._fridgeService = fridgeService;
-
+  
     this.updateFridgeItems();
   }
 
   public async updateFridgeItems(){
-    let retrievedItems = await this._fridgeService.getFridgeItems();
+    let retrievedItems = await this.fridgeService.getFridgeItems();
     this.items = retrievedItems;
 
     console.log("Items retrieved!");

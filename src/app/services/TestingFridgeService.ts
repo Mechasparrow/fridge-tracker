@@ -4,8 +4,9 @@ import { AbstractFridgeService } from './AbstractFridgeService';
 
 @Injectable()
 export class TestingFridgeService implements AbstractFridgeService {
+    
 
-    private items: FridgeItem[] = <FridgeItem[]>[
+    private static items: FridgeItem[] = <FridgeItem[]>[
         <FridgeItem>{
             name: "Apple",
             quantity: 10,
@@ -26,12 +27,19 @@ export class TestingFridgeService implements AbstractFridgeService {
         },
     ]
 
-    getFridgeItems(): Promise<FridgeItem[]> {
-        return Promise.resolve(this.items);
-    }
-    addFridgeItem(): Promise<FridgeItem> {
+    removeFridgeItem(item: FridgeItem): Promise<FridgeItem> {
         throw new Error('Method not implemented.');
     }
+
+    getFridgeItems(): Promise<FridgeItem[]> {
+        return Promise.resolve(TestingFridgeService.items);
+    }
+    
+    addFridgeItem(item: FridgeItem): Promise<FridgeItem> {
+        TestingFridgeService.items.push(item);
+        return Promise.resolve(item);
+    }
+    
     checkFridgeItemExpired(item: FridgeItem): Promise<boolean> {
         throw new Error('Method not implemented.');
     }

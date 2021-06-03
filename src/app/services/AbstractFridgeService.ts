@@ -10,7 +10,9 @@ export abstract class AbstractFridgeService {
 
   abstract  getFridgeItems(): Promise<FridgeItem[]>;
   
-  abstract addFridgeItem(): Promise<FridgeItem>;
+  abstract addFridgeItem(item: FridgeItem): Promise<FridgeItem>;
+
+  abstract removeFridgeItem(item: FridgeItem): Promise<FridgeItem>;
 
   abstract checkFridgeItemExpired(item: FridgeItem): Promise<boolean>;
 

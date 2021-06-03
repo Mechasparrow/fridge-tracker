@@ -1,24 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { FridgeItem } from 'src/app/models/FridgeItem';
+import { AbstractFridgeService } from 'src/app/services/AbstractFridgeService';
+import { TestingFridgeService } from 'src/app/services/TestingFridgeService';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-item',
   templateUrl: './new-item.component.html',
-  styleUrls: ['./new-item.component.scss']
+  styleUrls: ['./new-item.component.scss'],
+  providers: [
+    {provide: AbstractFridgeService, useClass: TestingFridgeService}
+  ]
 })
 export class NewItemComponent implements OnInit {
 
   expirationDate: Date = new Date(Date.now());
 
   itemForm = new FormGroup({
-    name: new FormControl(''),
-    quantity: new FormControl(''),
-    units: new FormControl(''),
-    expirationDate: new FormControl(new Date(Date.now()))  
+    name: new FormControl('', [Validators.required]),
+    quantity: new FormControl('',[Validators.required, Validators.min(0)]),
+    units: new FormControl('',[Validators.required]),
+    expirationDate: new FormControl(new Date(Date.now()),[Validators.required])  
   });
 
-  constructor() { }
+
+  constructor(private fridgeService: AbstractFridgeService, private snackBar: MatSnackBar) {}
+
+  openSnack(){
+    this.snackBar.open("Food Item Added!", "Close");
+  }
 
   ngOnInit(): void {
     this.itemForm.get("expirationDate")?.valueChanges.subscribe((value) => {
@@ -27,11 +38,11 @@ export class NewItemComponent implements OnInit {
     })
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
 
     var item: FridgeItem = this.buildItem(this.itemForm);
-
-    console.log(item);
+    await this.fridgeService.addFridgeItem(item);
+    this.openSnack();
   }
 
   private buildItem(itemForm: FormGroup): FridgeItem {
