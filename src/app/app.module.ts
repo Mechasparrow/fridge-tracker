@@ -14,7 +14,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { MatIconModule} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule, } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +29,11 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
     MatIconModule,
     FormsModule,
     AppRoutingModule,
