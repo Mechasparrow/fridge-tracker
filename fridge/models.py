@@ -7,3 +7,6 @@ class FridgeItem(models.Model):
     quantity = models.IntegerField()
     units = models.CharField(max_length=200)
     expirationDate = models.DateTimeField("expiration date")
+
+    def __str__(self):
+        return self.name
