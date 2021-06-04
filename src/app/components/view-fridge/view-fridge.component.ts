@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractFridgeService } from 'src/app/services/AbstractFridgeService';
 import { TestingFridgeService } from 'src/app/services/TestingFridgeService';
 import {FridgeItem} from 'src/app/models/FridgeItem';
+import { ApiFridgeService } from 'src/app/services/ApiFridgeService';
 
 @Component({
   selector: 'app-view-fridge',
   templateUrl: './view-fridge.component.html',
   styleUrls: ['./view-fridge.component.scss'],
   providers: [
-    {provide: AbstractFridgeService, useClass: TestingFridgeService}
+    //{provide: AbstractFridgeService, useClass: TestingFridgeService}
+    {provide: AbstractFridgeService, useClass: ApiFridgeService}
   ]
 })
 export class ViewFridgeComponent implements OnInit {

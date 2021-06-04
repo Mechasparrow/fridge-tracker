@@ -22,12 +22,8 @@ export class FridgeViewCardComponent implements OnInit {
 
   }
 
-  prettyDate(): string{
-    let month = this.itemToView.expirationDate.getMonth().toString();
-    let day = this.itemToView.expirationDate.getDay().toString();
-    let year = this.itemToView.expirationDate.getFullYear().toString();
-
-    return `${month}/${day}/${year}`;
+  prettyDate(): string {
+    return this.itemToView.expirationDate.toLocaleString();
   }
 
   ngOnInit(): void {

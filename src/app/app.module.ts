@@ -20,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule, } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
