@@ -10,3 +10,11 @@ class FridgeItem(models.Model):
 
     def __str__(self):
         return self.name
+
+    def serialize(self):
+        return {
+            "name": self.name,
+            "quantity": self.quantity,
+            "units": self.units,
+            "expirationDate": self.expirationDate
+        }
